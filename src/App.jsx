@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { LANGUAGES } from "./constants/languages";
 
 function App() {
-  const [lang, setLang] = useState(localStorage.getItem("lang") || "en");
+  const [lang, setLang] = useState(localStorage.getItem("lang") || "ar");
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
