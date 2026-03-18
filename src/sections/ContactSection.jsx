@@ -57,6 +57,7 @@ const ContactSection = ({ lang }) => {
                   src={social.icon}
                   alt={social.name}
                   className="w-6 h-6 md:w-8 md:h-8 brightness-0 invert"
+                  loading="lazy"
                 />
               </motion.a>
             ))}

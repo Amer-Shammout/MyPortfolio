@@ -116,6 +116,7 @@ export default function HeroSection({ lang }) {
               src={heroData.image}
               alt="Hero"
               className="w-full h-auto object-contain"
+              loading="lazy"
             />
           </div>
         </div>

@@ -53,6 +53,7 @@ const ProjectCard = ({ project }) => {
               w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 
               transition-all duration-500
             "
+            loading="lazy"
           />
         </div>
       </div>
