@@ -15,8 +15,7 @@ const ContactSection = ({ lang }) => {
     >
       {/* Background Pattern */}
       <div
-        className="absolute inset-0 opacity-10 pointer-events-none z-0 bg-repeat bg-[length:20px_20px]"
-        style={{ backgroundImage: 'url("/src/assets/icons/pattern.png")' }}
+        className="absolute inset-0 opacity-10 pointer-events-none z-0 project-pattern"
       />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-4">
