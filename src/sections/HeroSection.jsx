@@ -75,8 +75,7 @@ export default function HeroSection({ lang }) {
                     >
                       <button
                         onClick={() => {
-                          window.open("/Amer CV (UX).pdf", "_blank");
-                          setShowCVOptions(false);
+                          window.open(`${import.meta.env.BASE_URL}Amer CV (UX).pdf`, "_blank");                          setShowCVOptions(false);
                         }}
                         className="w-full text-left px-4 py-3 hover:bg-gray-100 transition"
                       >
@@ -85,8 +84,7 @@ export default function HeroSection({ lang }) {
 
                       <button
                         onClick={() => {
-                          window.open("/Amer CV (Flutter).pdf", "_blank");
-                          setShowCVOptions(false);
+                          window.open(`${import.meta.env.BASE_URL}Amer CV (Flutter).pdf`, "_blank");                          setShowCVOptions(false);
                         }}
                         className="w-full text-left px-4 py-3 hover:bg-gray-100 transition"
                       >
