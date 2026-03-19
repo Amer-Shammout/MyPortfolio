@@ -1,9 +1,51 @@
-import { useEffect, useRef, } from "react";
+import { useEffect, useRef } from "react";
 import Code from "../../assets/icons/flutter.svg?react";
 import Palette from "../../assets/icons/ui.svg?react";
 
 const CategoryChips = ({ categories, activeCategory, onSelect }) => {
   const scrollRef = useRef(null);
+
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollStart = useRef(0);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onMouseDown = (e) => {
+      isDragging.current = true;
+      startX.current = e.pageX;
+      scrollStart.current = el.scrollLeft;
+
+      el.style.cursor = "grabbing";
+      el.style.userSelect = "none";
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDragging.current) return;
+
+      const dx = e.pageX - startX.current;
+
+      el.scrollLeft = scrollStart.current - dx;
+    };
+
+    const onMouseUp = () => {
+      isDragging.current = false;
+      el.style.cursor = "grab";
+      el.style.removeProperty("user-select");
+    };
+
+    el.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+
+    return () => {
+      el.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -33,6 +75,9 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
           mask-right
 
           scroll-smooth
+
+          cursor-grab
+          active:cursor-grabbing
         `}
       >
         {categories.map((cat) => {
@@ -43,7 +88,11 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
             <button
               key={cat.value}
               data-active={isActive}
-              onClick={() => onSelect(cat.value)}
+              onClick={() => {
+                if (isDragging.current) return;
+
+                onSelect(cat.value);
+              }}
               className={`
                 group
                 flex items-center gap-2
