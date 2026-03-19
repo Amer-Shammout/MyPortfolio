@@ -50,11 +50,20 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
   useEffect(() => {
     const el = scrollRef.current;
     const activeEl = el?.querySelector("[data-active='true']");
-
-    activeEl?.scrollIntoView({
+    if (!el || !activeEl) return;
+  
+    const elRect = el.getBoundingClientRect();
+    const activeRect = activeEl.getBoundingClientRect();
+  
+    const offset =
+      activeRect.left -
+      elRect.left -
+      el.clientWidth / 2 +
+      activeRect.width / 2;
+  
+    el.scrollBy({
+      left: offset,
       behavior: "smooth",
-      inline: "center",
-      block: "nearest",
     });
   }, [activeCategory]);
 
