@@ -113,7 +113,7 @@ export default function ProjectsSection({ lang }) {
                 className="h-full scroll-mt-32"
                 ref={(el) => (cardsRef.current[index] = el)}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} lang={lang}  />
               </motion.div>
             ))}
           </motion.div>

@@ -3,7 +3,6 @@ import { LANGUAGES } from "../../constants/languages";
 import { headerData } from "../../constants/headerData";
 import LangIcon from "../../assets/icons/Languages.svg?react";
 
-
 const LanguageDropdown = ({ lang, setLang }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
@@ -21,6 +20,7 @@ const LanguageDropdown = ({ lang, setLang }) => {
 
   const changeLang = (newLang) => {
     setLang(newLang);
+
     setOpen(false);
   };
 
@@ -30,7 +30,7 @@ const LanguageDropdown = ({ lang, setLang }) => {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-2 text-sm font-normal cursor-pointer"
       >
-        <LangIcon/>
+        <LangIcon />
         <span>{lang.toUpperCase()}</span>
         <span className={`transition-transform ${open ? "rotate-180" : ""}`}>
           ▼

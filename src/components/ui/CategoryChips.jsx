@@ -1,68 +1,93 @@
+import { useEffect, useRef, } from "react";
+import Code from "../../assets/icons/flutter.svg?react";
+import Palette from "../../assets/icons/ui.svg?react";
+
 const CategoryChips = ({ categories, activeCategory, onSelect }) => {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    const activeEl = el?.querySelector("[data-active='true']");
+
+    activeEl?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [activeCategory]);
+
   return (
     <div className="relative">
-      
-      <div className="
-        flex 
-        flex-nowrap md:flex-wrap 
-        overflow-x-auto overflow-y-hidden 
-        justify-start md:justify-center 
-        scrollbar-hide
-        px-4 md:px-0
-        gap-[clamp(12px,2.5vw,32px)]
-        items-center
-        z-10
-      ">
+      <div
+        ref={scrollRef}
+        className={`
+          flex flex-nowrap
+          overflow-x-auto overflow-y-hidden
+          scrollbar-hide
+
+          px-4 md:px-0
+          gap-[clamp(12px,2.5vw,32px)]
+          items-center
+
+          mask-left
+          mask-right
+
+          scroll-smooth
+        `}
+      >
         {categories.map((cat) => {
           const isActive = cat.value === activeCategory;
+          const isDesign = cat.type === "design";
 
           return (
             <button
               key={cat.value}
+              data-active={isActive}
               onClick={() => onSelect(cat.value)}
               className={`
-                flex-shrink-0
-                whitespace-nowrap
-                transition-all duration-300
+                group
+                flex items-center gap-2
+                flex-shrink-0 whitespace-nowrap
+                
+                transition-all duration-300 ease-out
+                
                 rounded-[clamp(12px,2vw,16px)]
                 px-[clamp(16px,3vw,24px)]
                 py-[clamp(8px,1.5vw,12px)]
                 text-[clamp(14px,1.8vw,16px)]
+
+                border
+
                 ${
                   isActive
-                    ? `
-                      bg-[var(--color-primary)]
-                      text-white
-                      hover:bg-[#2160FF]
-                    `
-                    : `
-                      border border-[var(--color-primary)]
-                      text-[var(--color-primary)]
-                      hover:bg-[#C4D4FD]
-                    `
+                    ? isDesign
+                      ? "bg-purple-500 text-white border-purple-500"
+                      : "bg-blue-500 text-white border-blue-500"
+                    : isDesign
+                    ? "border-purple-300 text-purple-600 hover:bg-purple-100"
+                    : "border-blue-300 text-blue-600 hover:bg-blue-100"
                 }
+
+                active:scale-[0.97]
               `}
             >
+              <span className="opacity-80 group-hover:opacity-100 transition">
+                {isDesign ? (
+                  <Palette className="w-4 h-4" />
+                ) : (
+                  <Code className="w-4 h-4" />
+                )}
+              </span>
+
               {cat.label}
+
+              {isActive && (
+                <span className="ms-1 w-1.5 h-1.5 rounded-full bg-white/80" />
+              )}
             </button>
           );
         })}
       </div>
-
-      <div className="
-        pointer-events-none
-        absolute top-0 right-0 h-full w-12
-        bg-gradient-to-l from-white to-transparent
-        md:hidden
-      " />
-
-      <div className="
-        pointer-events-none
-        absolute top-0 left-0 h-full w-12
-        bg-gradient-to-r from-white to-transparent
-        md:hidden
-      " />
-
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, lang }) => {
   const { title, caption, categories, image, link } = project;
 
   const categoryText = categories.map((cat) => cat.label).join(" | ");
@@ -72,7 +72,7 @@ const ProjectCard = ({ project }) => {
           style={{ backgroundColor: `rgba(56,103,221,0.5)` }}
         >
           <span className="text-white font-bold text-[clamp(16px,2vw,20px)]">
-            More Details...
+            {lang == "en" ? "More Details..." : "المزيد..."}
           </span>
         </a>
       )}

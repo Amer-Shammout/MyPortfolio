@@ -14,9 +14,10 @@ import beautyHouse from "../assets/images/beauty_house.png";
 function mapProjectCategories(projectCategories, allCategories) {
   return projectCategories.map((value) => {
     const cat = allCategories.find((c) => c.value === value);
+
     return cat
-      ? { label: cat.label, value: cat.value }
-      : { label: value, value };
+      ? { label: cat.label, value: cat.value, type: cat.type }
+      : { label: value, value, type: "unknown" };
   });
 }
 
@@ -29,11 +30,13 @@ export const PROJECTS_DATA = {
 
     categories: [
       { label: "All Works", value: "all" },
-      { label: "Software", value: "software" },
-      { label: "Website Design", value: "website" },
-      { label: "Mobile App Design", value: "mobile" },
-      { label: "Dashboard Design", value: "dashboard" },
-      { label: "Landing Page Design", value: "landing_page" },
+      { label: "Flutter", value: "flutter", type: "dev" },
+      { label: "React", value: "react", type: "dev" },
+
+      { label: "Website", value: "website", type: "design" },
+      { label: "Mobile App", value: "mobile", type: "design" },
+      { label: "Dashboard", value: "dashboard", type: "design" },
+      { label: "Landing Page", value: "landing_page", type: "design" },
     ],
 
     projects: [
@@ -59,7 +62,7 @@ export const PROJECTS_DATA = {
         title: "Roll in Syria",
         caption: "A smart and fun tour guide app",
         image: visitSyriaMobile,
-        categories: ["software", "mobile"],
+        categories: ["flutter", "mobile"],
         link: "https://www.behance.net/gallery/235421743/_",
       },
       {
@@ -75,7 +78,7 @@ export const PROJECTS_DATA = {
         title: "E-Delivery",
         caption: "Fast & Easy Order Delivery",
         image: eDelivery,
-        categories: ["software", "mobile"],
+        categories: ["flutter", "mobile"],
         link: "https://www.behance.net/gallery/217579819/E-Delivery-Mobile-Application",
       },
       {
@@ -99,7 +102,7 @@ export const PROJECTS_DATA = {
         title: "Al Nashmi",
         caption: "Orginal Arabic Coffee",
         image: alNashmi,
-        categories: ["landing_page"],
+        categories: ["landing_page","react"],
         link: "https://www.behance.net/gallery/216346613/_",
       },
       {
@@ -130,11 +133,12 @@ export const PROJECTS_DATA = {
       ...project,
       categories: mapProjectCategories(project.categories, [
         { label: "All Works", value: "all" },
-        { label: "Software", value: "software" },
-        { label: "Web Design", value: "website" },
-        { label: "Mobile App Design", value: "mobile" },
-        { label: "Dashboard Design", value: "dashboard" },
-        { label: "Landing Page Design", value: "landing_page" },
+        { label: "Flutter", value: "flutter", type: "dev" },
+        { label: "React", value: "react", type: "dev" },
+        { label: "Web Design", value: "website", type: "design" },
+        { label: "Mobile App", value: "mobile", type: "design" },
+        { label: "Dashboard", value: "dashboard", type: "design" },
+        { label: "Landing Page", value: "landing_page", type: "design" },
       ]),
     })),
   },
@@ -147,13 +151,13 @@ export const PROJECTS_DATA = {
 
     categories: [
       { label: "جميع الأعمال", value: "all" },
-      { label: "البرمجيات", value: "software" },
-      { label: "تصميم المواقع الالكترونية", value: "website" },
-      { label: "تصميم تطبيقات الموبايل", value: "mobile" },
-      { label: "تصميم لوحات التحكم", value: "dashboard" },
-      { label: "تصميم صفحات الهبوط", value: "landing_page" },
+      { label: "فلاتر", value: "flutter", type: "dev" },
+      { label: "ريأكت", value: "react", type: "dev" },
+      { label: "مواقع ويب", value: "website", type: "design" },
+      { label: "تطبيقات موبايل", value: "mobile", type: "design" },
+      { label: "لوحات تحكم", value: "dashboard", type: "design" },
+      { label: "صفحات هبوط", value: "landing_page", type: "design" },
     ],
-
     projects: [
       {
         id: 1,
@@ -176,7 +180,7 @@ export const PROJECTS_DATA = {
         title: "لفة بــسوريا",
         caption: "تطبيق دليل سياحي ذكي وممتع",
         image: visitSyriaMobile,
-        categories: ["software", "mobile"],
+        categories: ["flutter", "mobile"],
         link: "https://www.behance.net/gallery/235421743/_",
       },
       {
@@ -192,7 +196,7 @@ export const PROJECTS_DATA = {
         title: "إي-دليفري",
         caption: "توصيل طلبات سريع وسهل",
         image: eDelivery,
-        categories: ["software", "mobile"],
+        categories: ["flutter", "mobile"],
         link: "https://www.behance.net/gallery/217579819/E-Delivery-Mobile-Application",
       },
       {
@@ -216,7 +220,7 @@ export const PROJECTS_DATA = {
         title: "النشمي",
         caption: "قهوة عربية أصلية",
         image: alNashmi,
-        categories: ["landing_page"],
+        categories: ["landing_page","react"],
         link: "https://www.behance.net/gallery/216346613/_",
       },
       {
@@ -247,11 +251,12 @@ export const PROJECTS_DATA = {
       ...project,
       categories: mapProjectCategories(project.categories, [
         { label: "جميع الأعمال", value: "all" },
-        { label: "البرمجيات", value: "software" },
-        { label: "تصميم المواقع الالكترونية", value: "website" },
-        { label: "تصميم تطبيقات الموبايل", value: "mobile" },
-        { label: "تصميم لوحات التحكم", value: "dashboard" },
-        { label: "تصميم صفحات الهبوط", value: "landing_page" },
+        { label: "فلاتر", value: "flutter", type: "dev" },
+        { label: "ريأكت", value: "react", type: "dev" },
+        { label: "مواقع ويب", value: "website", type: "design" },
+        { label: "تطبيقات موبايل", value: "mobile", type: "design" },
+        { label: "لوحات تحكم", value: "dashboard", type: "design" },
+        { label: "صفحات هبوط", value: "landing_page", type: "design" },
       ]),
     })),
   },
