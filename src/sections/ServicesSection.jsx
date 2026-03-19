@@ -13,7 +13,7 @@ export default function ServicesSection({ lang }) {
       className="scroll-mt-32  px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32"
     >
       <AnimatedSection direction="none">
-        <div className="flex flex-col gap-8 md:gap-12">
+        <div className="flex flex-col gap-10 md:gap-12">
           <SectionTitle
             highlightedText={servicesData.title.highlight}
             after={servicesData.title.rest}

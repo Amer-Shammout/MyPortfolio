@@ -2,7 +2,7 @@ import React from "react";
 
 const SectionTitle = ({ highlightedText ,after }) => {
   return (
-    <div className="flex flex-col items-center gap-1 relative group">
+    <div className="flex flex-col items-center gap-2 relative group">
       <h2 className="duration-300 group-hover:text-secondary ">
         <span className="text-[var(--color-primary)]">{highlightedText}</span>{after}
       </h2>

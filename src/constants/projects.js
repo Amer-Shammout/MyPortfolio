@@ -30,10 +30,10 @@ export const PROJECTS_DATA = {
     categories: [
       { label: "All Works", value: "all" },
       { label: "Software", value: "software" },
-      { label: "Website", value: "website" },
-      { label: "Mobile App", value: "mobile" },
-      { label: "Dashboard", value: "dashboard" },
-      { label: "Landing Page", value: "landing_page" },
+      { label: "Website Design", value: "website" },
+      { label: "Mobile App Design", value: "mobile" },
+      { label: "Dashboard Design", value: "dashboard" },
+      { label: "Landing Page Design", value: "landing_page" },
     ],
 
     projects: [
@@ -131,10 +131,10 @@ export const PROJECTS_DATA = {
       categories: mapProjectCategories(project.categories, [
         { label: "All Works", value: "all" },
         { label: "Software", value: "software" },
-        { label: "Website", value: "website" },
-        { label: "Mobile App", value: "mobile" },
-        { label: "Dashboard", value: "dashboard" },
-        { label: "Landing Page", value: "landing_page" },
+        { label: "Web Design", value: "website" },
+        { label: "Mobile App Design", value: "mobile" },
+        { label: "Dashboard Design", value: "dashboard" },
+        { label: "Landing Page Design", value: "landing_page" },
       ]),
     })),
   },
@@ -148,10 +148,10 @@ export const PROJECTS_DATA = {
     categories: [
       { label: "جميع الأعمال", value: "all" },
       { label: "البرمجيات", value: "software" },
-      { label: "المواقع الالكترونية", value: "website" },
-      { label: "تطبيقات الموبايل", value: "mobile" },
-      { label: "لوحات التحكم", value: "dashboard" },
-      { label: "صفحات الهبوط", value: "landing_page" },
+      { label: "تصميم المواقع الالكترونية", value: "website" },
+      { label: "تصميم تطبيقات الموبايل", value: "mobile" },
+      { label: "تصميم لوحات التحكم", value: "dashboard" },
+      { label: "تصميم صفحات الهبوط", value: "landing_page" },
     ],
 
     projects: [
@@ -248,10 +248,10 @@ export const PROJECTS_DATA = {
       categories: mapProjectCategories(project.categories, [
         { label: "جميع الأعمال", value: "all" },
         { label: "البرمجيات", value: "software" },
-        { label: "المواقع الالكترونية", value: "website" },
-        { label: "تطبيقات الموبايل", value: "mobile" },
-        { label: "لوحات التحكم", value: "dashboard" },
-        { label: "صفحات الهبوط", value: "landing_page" },
+        { label: "تصميم المواقع الالكترونية", value: "website" },
+        { label: "تصميم تطبيقات الموبايل", value: "mobile" },
+        { label: "تصميم لوحات التحكم", value: "dashboard" },
+        { label: "تصميم صفحات الهبوط", value: "landing_page" },
       ]),
     })),
   },

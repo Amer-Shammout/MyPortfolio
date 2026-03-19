@@ -2,7 +2,7 @@ import React from "react";
 
 const ServiceCard = ({ icon: Icon, title, body }) => {
   return (
-    <div className="group flex flex-col items-center text-center gap-4">
+    <div className="group flex flex-col items-center text-center md:gap-4 gap-[12px]">
       
       {/* ICON WRAPPER */}
       <div className="relative flex items-center justify-center">
