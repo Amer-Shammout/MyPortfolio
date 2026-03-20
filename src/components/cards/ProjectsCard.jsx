@@ -15,6 +15,12 @@ const ProjectCard = ({ project, lang, activeCategoryType }) => {
 
     return "rgba(56,103,221,0.5)";
   };
+  const getTextColor = () => {
+    if (activeCategoryType === "all") return "text-[var(--color-primary)]";
+    if (activeCategoryType === "dev") return "text-yellow-500";
+    if (activeCategoryType === "design") return "text-purple-500";
+    return "text-[var(--color-primary)]";
+  };
 
   return (
     <div
@@ -40,7 +46,7 @@ const ProjectCard = ({ project, lang, activeCategoryType }) => {
 
           {/* Title & Caption Section */}
           <h3 className="mb-[24px] sm:mb-[28px] md:mb-[32px] font-bold ">
-            <span className="text-[var(--color-primary)] text-[clamp(16px,2.5vw,20px)]">
+            <span className={`${getTextColor()} text-[clamp(16px,2.5vw,20px)]`}>
               {title}
             </span>
             <span className="mx-2 text-[var(--color-titles)] text-[clamp(16px,2.5vw,20px)]">
