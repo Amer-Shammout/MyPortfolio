@@ -86,15 +86,15 @@
     -webkit-mask-image: linear-gradient(
       to right,
       transparent,
-      black 5%,
-      black 95%,
+      black 3%,
+      black 97%,
       transparent
     );
     mask-image: linear-gradient(
       to right,
       transparent,
-      black 5%,
-      black 95%,
+      black 3%,
+      black 97%,
       transparent
     );
   }

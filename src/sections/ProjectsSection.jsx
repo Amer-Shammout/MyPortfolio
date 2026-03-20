@@ -72,11 +72,19 @@ export default function ProjectsSection({ lang }) {
     }
 
     return projectsData.projects.filter((project) =>
-      project.categories.some(cat => cat.value === activeCategory)
+      project.categories.some((cat) => cat.value === activeCategory)
     );
   }, [activeCategory, projectsData.projects]);
 
   const visibleProjects = filteredProjects.slice(0, displayCount);
+
+  const activeCategoryType = useMemo(() => {
+    const found = projectsData.categories.find(
+      (cat) => cat.value === activeCategory
+    );
+
+    return found.type;
+  }, [activeCategory, projectsData.categories]);
 
   return (
     <section
@@ -93,56 +101,62 @@ export default function ProjectsSection({ lang }) {
             after={projectsData.title.rest}
           />
 
-          <CategoryChips
-            categories={projectsData.categories}
-            activeCategory={activeCategory}
-            onSelect={setActiveCategory}
-          />
+          <div className="flex flex-col gap-6 md:gap-8">
+            <CategoryChips
+              categories={projectsData.categories}
+              activeCategory={activeCategory}
+              onSelect={setActiveCategory}
+            />
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px] items-stretch"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            key={activeCategory}
-          >
-            {visibleProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                variants={cardVariants}
-                className="h-full scroll-mt-32"
-                ref={(el) => (cardsRef.current[index] = el)}
-              >
-                <ProjectCard project={project} lang={lang}  />
-              </motion.div>
-            ))}
-          </motion.div>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px] items-stretch"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              key={activeCategory}
+            >
+              {visibleProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  variants={cardVariants}
+                  className="h-full scroll-mt-32"
+                  ref={(el) => (cardsRef.current[index] = el)}
+                >
+                  <ProjectCard
+                    project={project}
+                    lang={lang}
+                    activeCategoryType={activeCategoryType}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
 
-          {filteredProjects.length > INITIAL_DISPLAY_COUNT && (
-            <div className="flex justify-center mt-4">
-              <Button
-                onClick={() => {
-                  if (displayCount >= filteredProjects.length) {
-                    setDisplayCount(INITIAL_DISPLAY_COUNT);
-                    document
-                      .getElementById("projects")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  } else {
-                    setDisplayCount((prev) => prev + 3);
-                  }
-                }}
-                variant="filled"
-              >
-                {displayCount >= filteredProjects.length
-                  ? lang === "ar"
-                    ? "عرض أقل"
-                    : "Show Less"
-                  : lang === "ar"
-                  ? "عرض المزيد"
-                  : "Show More"}
-              </Button>
-            </div>
-          )}
+            {filteredProjects.length > INITIAL_DISPLAY_COUNT && (
+              <div className="flex justify-center mt-4">
+                <Button
+                  onClick={() => {
+                    if (displayCount >= filteredProjects.length) {
+                      setDisplayCount(INITIAL_DISPLAY_COUNT);
+                      document
+                        .getElementById("projects")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      setDisplayCount((prev) => prev + 3);
+                    }
+                  }}
+                  variant="filled"
+                >
+                  {displayCount >= filteredProjects.length
+                    ? lang === "ar"
+                      ? "عرض أقل"
+                      : "Show Less"
+                    : lang === "ar"
+                    ? "عرض المزيد"
+                    : "Show More"}
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
       </AnimatedSection>
     </section>

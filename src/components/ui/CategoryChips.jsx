@@ -51,16 +51,13 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
     const el = scrollRef.current;
     const activeEl = el?.querySelector("[data-active='true']");
     if (!el || !activeEl) return;
-  
+
     const elRect = el.getBoundingClientRect();
     const activeRect = activeEl.getBoundingClientRect();
-  
+
     const offset =
-      activeRect.left -
-      elRect.left -
-      el.clientWidth / 2 +
-      activeRect.width / 2;
-  
+      activeRect.left - elRect.left - el.clientWidth / 2 + activeRect.width / 2;
+
     el.scrollBy({
       left: offset,
       behavior: "smooth",
@@ -76,7 +73,7 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
           overflow-x-auto overflow-y-hidden
           scrollbar-hide
 
-          px-4 md:px-0
+          px-0 
           gap-[clamp(12px,2.5vw,32px)]
           items-center
 
@@ -91,6 +88,8 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
       >
         {categories.map((cat) => {
           const isActive = cat.value === activeCategory;
+          const isAll = cat.value === "all";
+          const isDev = cat.type === "dev";
           const isDesign = cat.type === "design";
 
           return (
@@ -118,24 +117,33 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
 
                 ${
                   isActive
-                    ? isDesign
+                    ? isAll
+                      ? "bg-blue-500 text-white border-blue-500"
+                      : isDesign
                       ? "bg-purple-500 text-white border-purple-500"
-                      : "bg-blue-500 text-white border-blue-500"
+                      : isDev
+                      ? "bg-yellow-500 text-white border-yellow-400"
+                      : ""
+                    : isAll
+                    ? "border-blue-300 text-blue-600 hover:bg-blue-100"
                     : isDesign
                     ? "border-purple-300 text-purple-600 hover:bg-purple-100"
-                    : "border-blue-300 text-blue-600 hover:bg-blue-100"
+                    : isDev
+                    ? "border-yellow-300 text-yellow-700 hover:bg-yellow-100"
+                    : ""
                 }
-
                 active:scale-[0.97]
               `}
             >
-              <span className="opacity-80 group-hover:opacity-100 transition">
-                {isDesign ? (
-                  <Palette className="w-4 h-4" />
-                ) : (
-                  <Code className="w-4 h-4" />
-                )}
-              </span>
+              {!isAll && (
+                <span className="opacity-80 group-hover:opacity-100 transition">
+                  {isDesign ? (
+                    <Palette className="w-4 h-4" />
+                  ) : (
+                    <Code className="w-4 h-4" />
+                  )}
+                </span>
+              )}
 
               {cat.label}
 

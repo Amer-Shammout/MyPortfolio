@@ -1,10 +1,20 @@
 import React from "react";
 
-const ProjectCard = ({ project, lang }) => {
+const ProjectCard = ({ project, lang, activeCategoryType }) => {
   const { title, caption, categories, image, link } = project;
 
   const categoryText = categories.map((cat) => cat.label).join(" | ");
   const hasExternalLink = link && link.trim() !== "";
+
+  const getOverlayColor = () => {
+    if (activeCategoryType === "all") return "rgba(56,103,221,0.5)"; // blue
+
+    if (activeCategoryType === "dev") return "rgba(214,179,8,0.5)"; // yellow
+
+    if (activeCategoryType === "design") return "rgba(168,85,247,0.5)"; // purple
+
+    return "rgba(56,103,221,0.5)";
+  };
 
   return (
     <div
@@ -69,7 +79,7 @@ const ProjectCard = ({ project, lang }) => {
             translate-y-full group-hover:translate-y-0 
             transition-transform duration-500 ease-in-out cursor-pointer
           "
-          style={{ backgroundColor: `rgba(56,103,221,0.5)` }}
+          style={{ backgroundColor: getOverlayColor() }}
         >
           <span className="text-white font-bold text-[clamp(16px,2vw,20px)]">
             {lang == "en" ? "More Details..." : "المزيد..."}

@@ -55,7 +55,7 @@ const Header = ({ lang, setLang }) => {
       className={`fixed w-full z-50 top-0 transition-all duration-500
       ${scrolled ? "backdrop-blur-md bg-white/70 shadow-sm" : ""}`}
     >
-      <div className="  flex items-center justify-between px-8 py-6 md:px-16 md:py-10 lg:px-[100px] lg:py-12 ">
+      <div className="  flex items-center justify-between px-8 py-6 md:px-16 md:py-8 lg:px-[100px]  ">
         <Logo lang={lang} />
 
         {/* Desktop nav */}

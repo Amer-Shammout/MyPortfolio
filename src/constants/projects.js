@@ -29,7 +29,7 @@ export const PROJECTS_DATA = {
     },
 
     categories: [
-      { label: "All Works", value: "all" },
+      { label: "All Works", value: "all",type:"all" },
       { label: "Flutter", value: "flutter", type: "dev" },
       { label: "React", value: "react", type: "dev" },
 
@@ -42,7 +42,7 @@ export const PROJECTS_DATA = {
     projects: [
       {
         id: 1,
-        title: "Roll in Syria",
+        title: "Visit Syria",
         caption: "Smart control panels for companies and ministries",
         image: visitSyriaDashboard,
         categories: ["dashboard"],
@@ -59,7 +59,7 @@ export const PROJECTS_DATA = {
 
       {
         id: 3,
-        title: "Roll in Syria",
+        title: "Visit Syria",
         caption: "A smart and fun tour guide app",
         image: visitSyriaMobile,
         categories: ["flutter", "mobile"],
@@ -132,7 +132,7 @@ export const PROJECTS_DATA = {
     ].map((project) => ({
       ...project,
       categories: mapProjectCategories(project.categories, [
-        { label: "All Works", value: "all" },
+        { label: "All Works", value: "all",type:"all" },
         { label: "Flutter", value: "flutter", type: "dev" },
         { label: "React", value: "react", type: "dev" },
         { label: "Web Design", value: "website", type: "design" },
@@ -150,7 +150,7 @@ export const PROJECTS_DATA = {
     },
 
     categories: [
-      { label: "جميع الأعمال", value: "all" },
+      { label: "جميع الأعمال", value: "all",type:"all" },
       { label: "فلاتر", value: "flutter", type: "dev" },
       { label: "ريأكت", value: "react", type: "dev" },
       { label: "مواقع ويب", value: "website", type: "design" },
@@ -250,7 +250,7 @@ export const PROJECTS_DATA = {
     ].map((project) => ({
       ...project,
       categories: mapProjectCategories(project.categories, [
-        { label: "جميع الأعمال", value: "all" },
+        { label: "جميع الأعمال", value: "all",type:"all" },
         { label: "فلاتر", value: "flutter", type: "dev" },
         { label: "ريأكت", value: "react", type: "dev" },
         { label: "مواقع ويب", value: "website", type: "design" },
