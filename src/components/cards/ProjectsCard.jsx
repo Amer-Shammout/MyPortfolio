@@ -9,15 +9,15 @@ const ProjectCard = ({ project, lang, activeCategoryType }) => {
   const getOverlayColor = () => {
     if (activeCategoryType === "all") return "rgba(56,103,221,0.5)"; // blue
 
-    if (activeCategoryType === "dev") return "rgba(214,179,8,0.5)"; // yellow
-
+    if (activeCategoryType === "dev") return "rgba(249, 115, 22, 0.5)";
+    
     if (activeCategoryType === "design") return "rgba(168,85,247,0.5)"; // purple
 
     return "rgba(56,103,221,0.5)";
   };
   const getTextColor = () => {
     if (activeCategoryType === "all") return "text-[var(--color-primary)]";
-    if (activeCategoryType === "dev") return "text-yellow-500";
+    if (activeCategoryType === "dev") return "text-orange-500";
     if (activeCategoryType === "design") return "text-purple-500";
     return "text-[var(--color-primary)]";
   };

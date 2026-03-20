@@ -95,7 +95,7 @@ export const PROJECTS_DATA = {
         caption: "Manage Payments with Ease",
         image: businessCard,
         categories: ["website"],
-        link: null,
+        link: "https://business1card.com/",
       },
       {
         id: 8,
@@ -213,7 +213,7 @@ export const PROJECTS_DATA = {
         caption: "إدارة المدفوعات بكل سهولة",
         image: businessCard,
         categories: ["website"],
-        link: null,
+        link: "https://business1card.com/",
       },
       {
         id: 8,

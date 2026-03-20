@@ -118,18 +118,18 @@ const CategoryChips = ({ categories, activeCategory, onSelect }) => {
                 ${
                   isActive
                     ? isAll
-                      ? "bg-blue-500 text-white border-blue-500"
+                      ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]"
                       : isDesign
                       ? "bg-purple-500 text-white border-purple-500"
                       : isDev
-                      ? "bg-yellow-500 text-white border-yellow-400"
+                      ? "bg-orange-500 text-white border-orange-400"
                       : ""
                     : isAll
-                    ? "border-blue-300 text-blue-600 hover:bg-blue-100"
+                    ? "border-blue-300 text-[var(--color-primary)] hover:bg-blue-100"
                     : isDesign
                     ? "border-purple-300 text-purple-600 hover:bg-purple-100"
                     : isDev
-                    ? "border-yellow-300 text-yellow-700 hover:bg-yellow-100"
+                    ? "border-orange-300 text-orange-700 hover:bg-orange-100"
                     : ""
                 }
                 active:scale-[0.97]

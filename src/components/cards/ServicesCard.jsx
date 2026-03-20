@@ -37,13 +37,13 @@ const ServiceCard = ({ icon: Icon, title, body }) => {
           "
         >
           <Icon
-            className="
+            className={`
             w-[clamp(32px,4vw,48px)]
             h-[clamp(32px,4vw,48px)]
             text-[var(--color-primary)]
             transition-all duration-300
             group-hover:text-[var(--color-white)]
-            "
+            `}
           />
         </div>
       </div>
