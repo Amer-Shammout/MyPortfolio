@@ -1,0 +1,19 @@
+:root {
+    color-scheme: light;
+    --color-primary: #2756CD;
+    --color-secondary: #C4D4FD;
+    --color-tertiary: #EBF1FF;
+    --color-titles: #0B0C0E;
+    --color-paragraph: #454A54;
+    --color-bg: #F1F2F4;
+    --color-white: #EBF1FF;
+  
+    --font-english: "Montserrat", sans-serif;
+    --font-arabic: "Next LT", sans-serif;
+  
+    --spacing-section-desktop: 5rem;
+    --spacing-section-tablet: 3rem;
+    --spacing-section-mobile: 2rem;
+    --radius-card: 2rem;
+  }
+  
