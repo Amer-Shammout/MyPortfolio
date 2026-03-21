@@ -105,7 +105,7 @@ Error generating stack: `+e.message+`
           group-hover:translate-y-[calc(clamp(70px,8vw,100px)-100%)]
           `}),(0,C.jsx)(`div`,{className:`
           flex items-center justify-center
-          rounded-full bg-[var(--color-secondary)]
+          rounded-full bg-[var(--color-primary)]
           transition-all duration-300
           group-hover:bg-[var(--color-primary)]
           group-hover:scale-105
